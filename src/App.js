@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import { auth } from "./firebase/init.js"
 import './App.css';
 
 function App() {
