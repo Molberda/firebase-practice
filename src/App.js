@@ -9,19 +9,20 @@ function App() {
       console.log(user)
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error.message)
     })
   }
 
     function login(){
-      signInWithEmailAndPassword(auth, "email@gmail.com", "test1234")
+      signInWithEmailAndPassword(auth, "email@gmail.com", "test12345")
       .then((user) => {
         console.log(user)
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error.message)
       })
     }
+    
   return (
     <div className="App">
       <button onClick={register}>Register</button>
