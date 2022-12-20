@@ -1,10 +1,26 @@
 import { auth } from "./firebase/init.js"
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { 
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword, 
+  signOut,
+  onAuthStateChanged } from "firebase/auth";
 import './App.css';
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function App() {
-  const [user, setUser] = React.useState({});
+
+  const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user)=> {
+      setLoading(false)
+      if (user){
+        setUser(user)
+      }
+    })
+   }, []);
+
   function register(){
     createUserWithEmailAndPassword(auth, "email@gmail.com", "test1234")
     .then((data) => {
@@ -35,7 +51,7 @@ function App() {
       <button onClick={register}>Register</button>
       <button onClick={login}>LogIn</button>
       <button onClick={logout}>LogOut</button>
-      {user.email}
+      {loading ? 'loading...' : user.email}
     </div>
   );
 }
