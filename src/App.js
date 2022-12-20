@@ -14,7 +14,7 @@ function App() {
   }
 
     function login(){
-      signInWithEmailAndPassword(auth, "email@gmail.com", "test12345")
+      signInWithEmailAndPassword(auth, "email@gmail.com", "test1234")
       .then((user) => {
         console.log(user)
       })
@@ -22,11 +22,16 @@ function App() {
         console.log(error.message)
       })
     }
-    
+
+    function logout(){
+
+    }
+
   return (
     <div className="App">
       <button onClick={register}>Register</button>
       <button onClick={login}>LogIn</button>
+      <button onClick={logout}>LogOut</button>
     </div>
   );
 }
