@@ -1,12 +1,14 @@
 import { auth } from "./firebase/init.js"
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import './App.css';
+import React from "react";
 
 function App() {
+  const [user, setUser] = React.useState({});
   function register(){
     createUserWithEmailAndPassword(auth, "email@gmail.com", "test1234")
-    .then((user) => {
-      console.log(user)
+    .then((data) => {
+      console.log(data)
     })
     .catch((error) => {
       console.log(error.message)
@@ -15,8 +17,8 @@ function App() {
 
     function login(){
       signInWithEmailAndPassword(auth, "email@gmail.com", "test1234")
-      .then((user) => {
-        console.log(user)
+      .then((data) => {
+        setUser(data.user)
       })
       .catch((error) => {
         console.log(error.message)
@@ -24,7 +26,8 @@ function App() {
     }
 
     function logout(){
-
+      signOut(auth)
+      setUser({})
     }
 
   return (
@@ -32,6 +35,7 @@ function App() {
       <button onClick={register}>Register</button>
       <button onClick={login}>LogIn</button>
       <button onClick={logout}>LogOut</button>
+      {user.email}
     </div>
   );
 }
