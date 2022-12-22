@@ -1,13 +1,50 @@
 import React from 'react';
-import { auth } from "./firebase/init.js"
+import { auth } from "../firebase/init.js"
 import { 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword, 
   signOut,
   onAuthStateChanged } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Nav = () => {
+
+    const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user)=> {
+      setLoading(false)
+      if (user){
+        setUser(user)
+      }
+    })
+   }, []);
+
+  function register(){
+    createUserWithEmailAndPassword(auth, "email@gmail.com", "test1234")
+    .then((data) => {
+      console.log(data)
+    })
+    .catch((error) => {
+      console.log(error.message)
+    })
+  }
+
+    function login(){
+      signInWithEmailAndPassword(auth, "email@gmail.com", "test1234")
+      .then((data) => {
+        setUser(data.user)
+      })
+      .catch((error) => {
+        console.log(error.message)
+      })
+    }
+
+    function logout(){
+      signOut(auth)
+      setUser({})
+    }
     return (
         <div>
             
