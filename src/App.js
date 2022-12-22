@@ -1,11 +1,5 @@
-import { auth } from "./firebase/init.js"
-import { 
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword, 
-  signOut,
-  onAuthStateChanged } from "firebase/auth";
 import './App.css';
-import React, { useEffect, useState } from "react";
+
 
 function App() {
 
