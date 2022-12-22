@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import Logo from "../assets/barco__logo.png"
+import LogProfile from "../Ui/LogProfile.jsx";
 
 const Nav = () => {
   const [user, setUser] = useState({});
@@ -58,7 +59,7 @@ const Nav = () => {
       </div>
       <div className="login__buttons">
         {logged ? <></> : <button className="reg__btn click" onClick={register}>Register</button>}
-        {logged ? <></> :<button className="log__btn click" onClick={login}>LogIn</button>}
+        {logged ? <LogProfile/> :<button className="log__btn click" onClick={login}>LogIn</button>}
         {logged ? <button className="logout__btn click" onClick={logout}>LogOut</button> : <></>}
       </div>
     </nav>
