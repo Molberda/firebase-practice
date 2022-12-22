@@ -19,6 +19,7 @@ const Nav = () => {
       setLoading(false);
       if (user) {
         setUser(user);
+        setLogged(true)
       }
     });
   }, []);
@@ -58,7 +59,7 @@ const Nav = () => {
       <div className="login__buttons">
         <button className="reg__btn click" onClick={register}>Register</button>
         <button className="log__btn click" onClick={login}>LogIn</button>
-        {logged ? <button className="logout__btn" onClick={logout}>LogOut</button> : <></>}
+        {logged ? <button className="logout__btn click" onClick={logout}>LogOut</button> : <></>}
       </div>
     </nav>
   );
