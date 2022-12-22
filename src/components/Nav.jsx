@@ -57,8 +57,8 @@ const Nav = () => {
         <img src={Logo} alt="" className="logo__img" />
       </div>
       <div className="login__buttons">
-        <button className="reg__btn click" onClick={register}>Register</button>
-        <button className="log__btn click" onClick={login}>LogIn</button>
+        {logged ? <></> : <button className="reg__btn click" onClick={register}>Register</button>}
+        {logged ? <></> :<button className="log__btn click" onClick={login}>LogIn</button>}
         {logged ? <button className="logout__btn click" onClick={logout}>LogOut</button> : <></>}
       </div>
     </nav>
