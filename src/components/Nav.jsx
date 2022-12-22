@@ -12,6 +12,7 @@ import Logo from "../assets/barco__logo.png"
 const Nav = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
+  const [logged, setLogged] = useState(false);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -36,6 +37,8 @@ const Nav = () => {
     signInWithEmailAndPassword(auth, "email@gmail.com", "test1234")
       .then((data) => {
         setUser(data.user);
+        setLogged(true)
+        console.log(data.user)
       })
       .catch((error) => {
         console.log(error.message);
@@ -45,6 +48,7 @@ const Nav = () => {
   function logout() {
     signOut(auth);
     setUser({});
+    setLogged(false)
   }
   return (
     <nav>
@@ -54,7 +58,7 @@ const Nav = () => {
       <div className="login__buttons">
         <button className="reg__btn click" onClick={register}>Register</button>
         <button className="log__btn click" onClick={login}>LogIn</button>
-        <button className="logout__btn" onClick={logout}>LogOut</button>
+        {logged ? <button className="logout__btn" onClick={logout}>LogOut</button> : <></>}
       </div>
     </nav>
   );
