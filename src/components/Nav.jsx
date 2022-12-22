@@ -52,10 +52,9 @@ const Nav = () => {
         <img src={Logo} alt="" className="logo__img" />
       </div>
       <div className="login__buttons">
-        <button onClick={register}>Register</button>
-        <button onClick={login}>LogIn</button>
-        <button onClick={logout}>LogOut</button>
-        {loading ? "loading..." : user.email}
+        <button className="reg__btn" onClick={register}>Register</button>
+        <button className="log__btn" onClick={login}>LogIn</button>
+        <button className="logout__btn" onClick={logout}>LogOut</button>
       </div>
     </nav>
   );

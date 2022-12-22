@@ -28,3 +28,10 @@ button{
     margin: 0 0.5em;
     padding: 0.15em 0.75em;
 }
+
+.reg__btn{
+    background-color: #020621;
+    color: white;
+    border: 1px solid white;
+    border-radius: 0.5em;
+}
