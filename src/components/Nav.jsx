@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
+import Logo from "../assets/barco__logo.png"
 
 const Nav = () => {
   const [user, setUser] = useState({});
@@ -48,7 +49,7 @@ const Nav = () => {
   return (
     <nav>
       <div className="logo__wrapper">
-        <img src="" alt="" className="logo__img" />
+        <img src={Logo} alt="" className="logo__img" />
       </div>
       <div className="login__buttons">
         <button onClick={register}>Register</button>
