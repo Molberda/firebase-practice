@@ -1,4 +1,5 @@
 import './App.css';
+import Nav from './components/Nav';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
 
   return (
     <div className="App">
+      <Nav/>
       <button onClick={register}>Register</button>
       <button onClick={login}>LogIn</button>
       <button onClick={logout}>LogOut</button>
