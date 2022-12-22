@@ -46,12 +46,17 @@ const Nav = () => {
     setUser({});
   }
   return (
-    <div>
-      <button onClick={register}>Register</button>
-      <button onClick={login}>LogIn</button>
-      <button onClick={logout}>LogOut</button>
-      {loading ? "loading..." : user.email}
-    </div>
+    <nav>
+      <div className="logo__wrapper">
+        <img src="" alt="" className="logo__img" />
+      </div>
+      <div className="login__buttons">
+        <button onClick={register}>Register</button>
+        <button onClick={login}>LogIn</button>
+        <button onClick={logout}>LogOut</button>
+        {loading ? "loading..." : user.email}
+      </div>
+    </nav>
   );
 };
 
