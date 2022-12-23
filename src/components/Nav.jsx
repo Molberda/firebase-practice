@@ -32,9 +32,11 @@ const Nav = () => {
     createUserWithEmailAndPassword(auth, "email@gmail.com", "test1234")
       .then((data) => {
         console.log(data);
+        alert("Registered successfully")
+        setOutload(false)
       })
       .catch((error) => {
-        console.log(error.message);
+        alert(error)
       });
   }
 
@@ -48,7 +50,8 @@ const Nav = () => {
           setOutload(false);
         })
         .catch((error) => {
-          console.log(error.message);
+          alert(error)
+          setLogload(false)
         });
     }, 1300);
   }
