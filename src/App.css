@@ -40,6 +40,10 @@ button {
   cursor: pointer;
 }
 
+.click:active{
+  scale: 0.8;
+}
+
 .reg__btn {
   background-color: #020621;
   color: white;
@@ -95,13 +99,13 @@ h1{
 
 .fa-circle-notch{
   color: white;
-  font-size: 2em;
+  font-size: 1.5em;
   display: none;
   animation: spin 600ms infinite linear;
 }
 
 .logload{
-  background-color: grey;
+  background-color: rgb(167, 167, 167);
 }
 
 @keyframes spin{

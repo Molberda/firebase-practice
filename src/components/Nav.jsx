@@ -49,7 +49,7 @@ const Nav = () => {
         .catch((error) => {
           console.log(error.message);
         });
-    }, 1000);
+    }, 1300);
   }
 
   function logout() {
