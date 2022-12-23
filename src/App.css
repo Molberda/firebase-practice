@@ -93,6 +93,30 @@ h1{
   color: white;
 }
 
+.fa-circle-notch{
+  color: white;
+  font-size: 2em;
+  display: none;
+  animation: spin 600ms infinite linear;
+}
+
 .logload{
   background-color: grey;
+}
+
+@keyframes spin{
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.logload .fa-circle-notch{
+  display: flex;
+}
+
+.logload .logtext{
+  display: none;
 }

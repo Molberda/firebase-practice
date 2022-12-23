@@ -9,6 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import Logo from "../assets/barco__logo.png";
 import LogProfile from "../Ui/LogProfile.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const Nav = () => {
@@ -72,11 +73,10 @@ const Nav = () => {
       <div className="login__buttons">
         {logged ? <></> : <button className="reg__btn click" onClick={register}> Register </button>}
         {logged ? <LogProfile /> : <></>}
-        {logged ? <></> : <button className={logload? "log__btn click logload" : "log__btn click"} onClick={() => { login(); loadings()}} > LogIn </button>}
+        {logged ? <></> : <button className={logload? "log__btn click logload" : "log__btn click"} onClick={() => { login(); loadings()}} ><span className="logtext"> LogIn </span> <FontAwesomeIcon icon="fa-solid fa-circle-notch"/> </button>}
         <h1>{user.email}</h1>
         {logged ? <button className="logout__btn click" onClick={logout}> LogOut </button> : <></>}
       </div>
-      <FontAwesomeIcon icon="fa-solid fa-circle-notch" />
     </nav>
   );
 };
