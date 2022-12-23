@@ -34,17 +34,19 @@ const Nav = () => {
         console.log(error.message);
       });
   }
-
+  
   function login() {
+  setTimeout(() => {
     signInWithEmailAndPassword(auth, "email@gmail.com", "test1234")
     .then((data) => {
-          setUser(data.user);
-          setLogged(true);
-          console.log(data.user)
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+      setUser(data.user);
+      setLogged(true);
+      console.log(data.user)
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+  }, 1500);
   }
 
   function logout() {
