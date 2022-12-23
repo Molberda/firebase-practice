@@ -55,6 +55,7 @@ const Nav = () => {
       signOut(auth);
       setUser({});
       setLogged(false);
+      setLogload(false)
     }, 1000);
   }
 
