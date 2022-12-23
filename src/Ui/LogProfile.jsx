@@ -3,7 +3,7 @@ import ProfilePic from '../assets/foto__david.jpeg'
 
 const LogProfile = () => {
     return (
-        <div className='profile__wrapper'>
+        <div className='profile__wrapper click'>
             <img src={ProfilePic} alt="" className="profile__pic" />
         </div>
     );
