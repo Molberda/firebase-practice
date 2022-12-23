@@ -46,7 +46,7 @@ const Nav = () => {
         .catch((error) => {
           console.log(error.message);
         });
-    }, 1500);
+    }, 1000);
   }
 
   function logout() {
@@ -54,37 +54,25 @@ const Nav = () => {
       signOut(auth);
       setUser({});
       setLogged(false);
-    }, 1500);
+    }, 1000);
   }
+
+  function loadings(){
+    console.log("222")
+  }
+
   return (
     <nav>
       <div className="logo__wrapper">
         <img src={Logo} alt="" className="logo__img" />
       </div>
       <div className="login__buttons">
-        {logged ? (
-          <></>
-        ) : (
-          <button className="reg__btn click" onClick={register}>
-            Register
-          </button>
-        )}
+        {logged ? <></> : <button className="reg__btn click" onClick={register}> Register </button>}
         {logged ? <LogProfile /> : <></>}
-        {logged ? (
-          <></>
-        ) : (
-          <button className="log__btn click" onClick={login}>
-            LogIn
-          </button>
-        )}
+        {logged ? <></> : <button className="log__btn click" onClick={() => { login(); loadings()}} > LogIn </button>}
+        {/* {logged ? <></> : <button className="log__btn click" onClick={login} > LogIn </button>} */}
         <h1>{user.email}</h1>
-        {logged ? (
-          <button className="logout__btn click" onClick={logout}>
-            LogOut
-          </button>
-        ) : (
-          <></>
-        )}
+        {logged ? <button className="logout__btn click" onClick={logout}> LogOut </button> : <></>}
       </div>
     </nav>
   );
