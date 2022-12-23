@@ -34,25 +34,27 @@ const Nav = () => {
         console.log(error.message);
       });
   }
-  
+
   function login() {
-  setTimeout(() => {
-    signInWithEmailAndPassword(auth, "email@gmail.com", "test1234")
-    .then((data) => {
-      setUser(data.user);
-      setLogged(true);
-      console.log(data.user)
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-  }, 1500);
+    setTimeout(() => {
+      signInWithEmailAndPassword(auth, "email@gmail.com", "test1234")
+        .then((data) => {
+          setUser(data.user);
+          setLogged(true);
+          console.log(data.user);
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    }, 1500);
   }
 
   function logout() {
-    signOut(auth);
-    setUser({});
-    setLogged(false);
+    setTimeout(() => {
+      signOut(auth);
+      setUser({});
+      setLogged(false);
+    }, 1500);
   }
   return (
     <nav>
@@ -60,11 +62,29 @@ const Nav = () => {
         <img src={Logo} alt="" className="logo__img" />
       </div>
       <div className="login__buttons">
-        {logged ? <></> : <button className="reg__btn click" onClick={register}>Register</button>}
-        {logged ? <LogProfile/> : <></> }
-        {logged ? <></> :<button className="log__btn click" onClick={login}>LogIn</button>}
+        {logged ? (
+          <></>
+        ) : (
+          <button className="reg__btn click" onClick={register}>
+            Register
+          </button>
+        )}
+        {logged ? <LogProfile /> : <></>}
+        {logged ? (
+          <></>
+        ) : (
+          <button className="log__btn click" onClick={login}>
+            LogIn
+          </button>
+        )}
         <h1>{user.email}</h1>
-        {logged ? <button className="logout__btn click" onClick={logout}>LogOut</button> : <></>}
+        {logged ? (
+          <button className="logout__btn click" onClick={logout}>
+            LogOut
+          </button>
+        ) : (
+          <></>
+        )}
       </div>
     </nav>
   );
