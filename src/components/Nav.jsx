@@ -82,7 +82,7 @@ const Nav = () => {
           <></>
         ) : (
           <button
-            className={logload ? "log__btn click logload" : "log__btn click"}
+            className={logload ? "log__btn logload" : "log__btn click"}
             onClick={login}
           >
             <span className="btntext"> LogIn </span>{" "}
@@ -93,7 +93,7 @@ const Nav = () => {
         {logged ? (
           <button
             className={
-              outload ? "logout__btn click outload" : "logout__btn click"
+              outload ? "logout__btn outload" : "logout__btn click"
             }
             onClick={logout}
           >
