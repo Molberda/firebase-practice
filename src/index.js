@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faCircleNotch)
+library.add( faCircleNotch )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

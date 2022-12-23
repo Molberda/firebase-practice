@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import Logo from "../assets/barco__logo.png";
 import LogProfile from "../Ui/LogProfile.jsx";
 
+
 const Nav = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
@@ -75,6 +76,7 @@ const Nav = () => {
         <h1>{user.email}</h1>
         {logged ? <button className="logout__btn click" onClick={logout}> LogOut </button> : <></>}
       </div>
+      <FontAwesomeIcon icon="fa-solid fa-circle-notch" />
     </nav>
   );
 };
