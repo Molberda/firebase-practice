@@ -11,12 +11,12 @@ import Logo from "../assets/barco__logo.png";
 import LogProfile from "../Ui/LogProfile.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 const Nav = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [logged, setLogged] = useState(false);
   const [logload, setLogload] = useState(false);
+  const [outload, setOutload] = useState(false);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -39,12 +39,13 @@ const Nav = () => {
   }
 
   function login() {
+    setLogload(true);
     setTimeout(() => {
       signInWithEmailAndPassword(auth, "email@gmail.com", "test1234")
         .then((data) => {
           setUser(data.user);
           setLogged(true);
-          console.log(data.user);
+          setOutload(false);
         })
         .catch((error) => {
           console.log(error.message);
@@ -53,16 +54,13 @@ const Nav = () => {
   }
 
   function logout() {
+    setOutload(true);
     setTimeout(() => {
       signOut(auth);
       setUser({});
       setLogged(false);
-      setLogload(false)
+      setLogload(false);
     }, 1000);
-  }
-
-  function loadings(){
-    setLogload(true)
   }
 
   return (
@@ -71,11 +69,41 @@ const Nav = () => {
         <img src={Logo} alt="" className="logo__img" />
       </div>
       <div className="login__buttons">
-        {logged ? <></> : <button className="reg__btn click" onClick={register}> Register </button>}
+        {logged ? (
+          <></>
+        ) : (
+          <button className="reg__btn click" onClick={register}>
+            {" "}
+            Register{" "}
+          </button>
+        )}
         {logged ? <LogProfile /> : <></>}
-        {logged ? <></> : <button className={logload? "log__btn click logload" : "log__btn click"} onClick={() => { login(); loadings()}} ><span className="logtext"> LogIn </span> <FontAwesomeIcon icon="fa-solid fa-circle-notch"/> </button>}
+        {logged ? (
+          <></>
+        ) : (
+          <button
+            className={logload ? "log__btn click logload" : "log__btn click"}
+            onClick={login}
+          >
+            <span className="btntext"> LogIn </span>{" "}
+            <FontAwesomeIcon icon="fa-solid fa-circle-notch" />{" "}
+          </button>
+        )}
         <h1>{user.email}</h1>
-        {logged ? <button className="logout__btn click" onClick={logout}> LogOut </button> : <></>}
+        {logged ? (
+          <button
+            className={
+              outload ? "logout__btn click outload" : "logout__btn click"
+            }
+            onClick={logout}
+          >
+            {" "}
+            <span className="btntext"> LogOut </span>{" "}
+            <FontAwesomeIcon icon="fa-solid fa-circle-notch" />{" "}
+          </button>
+        ) : (
+          <></>
+        )}
       </div>
     </nav>
   );

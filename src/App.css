@@ -102,10 +102,17 @@ h1{
   font-size: 1.5em;
   display: none;
   animation: spin 600ms infinite linear;
+  z-index: 10;
+
 }
 
-.logload{
-  background-color: rgb(167, 167, 167);
+.logload{ 
+  background-color: rgb(168, 167, 167);
+}
+
+.outload{
+  background-color: rgb(152, 0, 0);
+  border: 1px solid rgb(152, 0, 0);
 }
 
 @keyframes spin{
@@ -119,8 +126,18 @@ h1{
 
 .logload .fa-circle-notch{
   display: flex;
+
 }
 
-.logload .logtext{
+.logload .btntext{
+  display: none;
+}
+
+.outload .fa-circle-notch{
+  display: flex;
+
+}
+
+.outload .btntext{
   display: none;
 }
