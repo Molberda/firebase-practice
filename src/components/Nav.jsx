@@ -7,7 +7,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-import Logo from "../assets/barco__logo.png"
+import Logo from "../assets/barco__logo.png";
 import LogProfile from "../Ui/LogProfile.jsx";
 
 const Nav = () => {
@@ -20,7 +20,7 @@ const Nav = () => {
       setLoading(false);
       if (user) {
         setUser(user);
-        setLogged(true)
+        setLogged(true);
       }
     });
   }, []);
@@ -37,10 +37,10 @@ const Nav = () => {
 
   function login() {
     signInWithEmailAndPassword(auth, "email@gmail.com", "test1234")
-      .then((data) => {
-        setUser(data.user);
-        setLogged(true)
-        console.log(data.user)
+    .then((data) => {
+          setUser(data.user);
+          setLogged(true);
+          console.log(data.user)
       })
       .catch((error) => {
         console.log(error.message);
@@ -50,7 +50,7 @@ const Nav = () => {
   function logout() {
     signOut(auth);
     setUser({});
-    setLogged(false)
+    setLogged(false);
   }
   return (
     <nav>
@@ -59,7 +59,8 @@ const Nav = () => {
       </div>
       <div className="login__buttons">
         {logged ? <></> : <button className="reg__btn click" onClick={register}>Register</button>}
-        {logged ? <LogProfile/> :<button className="log__btn click" onClick={login}>LogIn</button>}
+        {logged ? <LogProfile/> : <></> }
+        {logged ? <></> :<button className="log__btn click" onClick={login}>LogIn</button>}
         <h1>{user.email}</h1>
         {logged ? <button className="logout__btn click" onClick={logout}>LogOut</button> : <></>}
       </div>
