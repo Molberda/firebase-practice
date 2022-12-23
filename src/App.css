@@ -86,3 +86,7 @@ button {
 .profile__pic{
   aspect-ratio: 1 / 1;
 }
+
+h1{
+  color: white;
+}

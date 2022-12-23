@@ -60,6 +60,7 @@ const Nav = () => {
       <div className="login__buttons">
         {logged ? <></> : <button className="reg__btn click" onClick={register}>Register</button>}
         {logged ? <LogProfile/> :<button className="log__btn click" onClick={login}>LogIn</button>}
+        <h1>{user.email}</h1>
         {logged ? <button className="logout__btn click" onClick={logout}>LogOut</button> : <></>}
       </div>
     </nav>
