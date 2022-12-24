@@ -20,7 +20,9 @@ const Nav = () => {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000); 
       if (user) {
         setUser(user);
         setLogged(true);
@@ -71,7 +73,7 @@ const Nav = () => {
       <div className="logo__wrapper">
         <img src={Logo} alt="" className="logo__img" />
       </div>
-      <div className="login__buttons">
+    { loading ? <button className="skeleton">Register</button>  : ( <div className="login__buttons">
         {logged ? (
           <></>
         ) : (
@@ -107,7 +109,7 @@ const Nav = () => {
         ) : (
           <></>
         )}
-      </div>
+      </div>) }
     </nav>
   );
 };
