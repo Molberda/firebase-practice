@@ -149,3 +149,12 @@ h1{
   color: transparent;
   background: linear-gradient(80deg, rgba(217,217,217,1) 0%, rgb(148, 148, 148) 100%);
 }
+
+@keyframes laoding {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
