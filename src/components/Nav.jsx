@@ -94,7 +94,6 @@ const Nav = () => {
             <FontAwesomeIcon icon="fa-solid fa-circle-notch" />{" "}
           </button>
         )}
-        <h1>{user.email}</h1>
         {logged ? (
           <button
             className={
