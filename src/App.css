@@ -147,14 +147,14 @@ h1{
 
 .skeleton{
   color: transparent;
-  background: linear-gradient(80deg, rgba(217,217,217,1) 0%, rgb(148, 148, 148) 100%);
+  animation: loading 1000ms infinite alternate-reverse;
 }
 
-@keyframes laoding {
+@keyframes loading {
   0%{
-    transform: translateX(0);
+    background:rgb(185, 185, 185) ;
   }
   100%{
-    transform: translateX(100%);
+    background: rgb(150, 150, 150);
   }
 }
