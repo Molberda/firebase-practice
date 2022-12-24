@@ -55,7 +55,7 @@ const Nav = () => {
           alert(error)
           setLogload(false)
         });
-    }, 1300);
+    }, 1000);
   }
 
   function logout() {
