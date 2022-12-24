@@ -73,7 +73,7 @@ const Nav = () => {
       <div className="logo__wrapper">
         <img src={Logo} alt="" className="logo__img" />
       </div>
-    { loading ? <button className="skeleton">Register</button>  : ( <div className="login__buttons">
+    { loading ? <div> <button className="skeleton">Regisjuehdgeuaydg</button> <button className="skeleton">Login</button> </div> : ( <div className="login__buttons">
         {logged ? (
           <></>
         ) : (

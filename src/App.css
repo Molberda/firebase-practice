@@ -66,7 +66,7 @@ button {
 }
 
 .logout__btn {
-  background-color: red;
+background-color: red;
   color: black;
 
 }
@@ -146,6 +146,6 @@ h1{
 }
 
 .skeleton{
-  color: lightgrey;
-  background-color: lightgrey;
+  color: transparent;
+  background: linear-gradient(80deg, rgba(217,217,217,1) 0%, rgb(148, 148, 148) 100%);
 }
