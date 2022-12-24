@@ -82,7 +82,7 @@ const Nav = () => {
             Register{" "}
           </button>
         )}
-        {logged ? <LogProfile /> : <></>}
+        {logged ? <LogProfile user={user} /> : <></>}
         {logged ? (
           <></>
         ) : (
